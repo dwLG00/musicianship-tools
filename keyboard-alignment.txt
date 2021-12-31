@@ -1,0 +1,39 @@
+Frame edges are 5px wide. White keys are 40px wide. Black keys are 25px wide.
+
+L, T, and J keys will be anchored to their left-most corner (0, 0).
+Black keys will be anchored to (0.5, 0).
+
+There needs to be a half-Black key at where f'3 and c'5 would be to maintain the shape of the ends of the keyboard.
+
+g3:	T (5, 5)
+g'3:	B (47, 5)
+a3:	T (50, 5)
+a'3:	B (92, 5)
+b3:	J (95, 5)
+c4:	C (140, 5)
+c'4:	B (182, 5)
+d4:	T (185, 5)
+d'4:	B (227, 5)
+e4:	J (230, 5)
+f4:	L (275, 5)
+f'4:	B (317, 5)
+g4:	T (320, 5)
+g'4:	B (362, 5)
+a4:	T (365, 5)
+a'4:	B (407, 5)
+b4:	J (410, 5)
+c5:	L (455, 5)
+c'5:	B (497, 5)
+d5:	T (500, 5)
+d'5:	B (542, 5)
+e5:	J (545, 5)
+f5:	L (590, 5)
+f'5:	B (632, 5)
+g5:	T (635, 5)
+g'5:	B (677, 5)
+a5:	T (680, 5)
+a'5:	B (722, 5)
+b5:	J (725, 5)
+c6:	L (770, 5)
+
+
