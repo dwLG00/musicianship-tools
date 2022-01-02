@@ -2,9 +2,16 @@
 <!-- Game menu page -->
 <html>
 	<head>
+		<script src="/static/js/game-menu.js"></script>
 	</head>
 	<body>
 		<h1>Ear Training</h1>
-		<button>Play!</button>
+		<form id="choose-game">
+			<label for="game-select">Choose a game:</label>
+			<select name="game-select" id="game-select">
+				<option value="listening">Listening</option>
+			</select>
+			<input type="submit">Play!</input>
+		</form>
 	</body>
 </html>
