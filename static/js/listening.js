@@ -171,7 +171,7 @@ all_keys.forEach((key, idx) => {
 // Audio setup
 
 MIDI.loadPlugin({
-	soundfontUrl: "/static/js/midi-js/soundfont/",
+	soundfontUrl: "/static/game-resources/soundfont/",
 	instrument: "acoustic_grand_piano",
 	onprogress: function(state, progress) {
 		console.log(state, progress);
