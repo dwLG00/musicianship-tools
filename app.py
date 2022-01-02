@@ -13,3 +13,7 @@ def game_select():
 @app.route('/game/listening')
 def listening_game():
 	return render_template('listening.html')
+
+@app.route('/game/listening/results')
+def listening_results():
+	return render_template('listening-results.html')
