@@ -2,16 +2,25 @@
 <!-- Game menu page -->
 <html>
 	<head>
-		<script src="/static/js/game-menu.js"></script>
+		<script src="/static/js/game-menu.js" defer></script>
+		<link rel="stylesheet" href="/static/css/game-menu.css"></link>
 	</head>
 	<body>
 		<h1>Ear Training</h1>
-		<form id="choose-game">
+		<div id="choose-game">
 			<label for="game-select">Choose a game:</label>
 			<select name="game-select" id="game-select">
+				<option value="null">Choose Game:</option>
 				<option value="listening">Listening</option>
 			</select>
-			<input type="submit">Play!</input>
-		</form>
+			<div class="listening-options additional-options invisible">
+				<button class="difficulty listening-option" id="listening-beginner">Beginner</button>
+				<button class="difficulty listening-option" id="listening-easy">Easy</button>
+				<button class="difficulty listening-option" id="listening-intermediate">Intermediate</button>
+				<button class="difficulty listening-option" id="listening-hard">Hard</button>
+				<button class="difficulty listening-option" id="listening-expert">Expert</button>
+			</div>
+			<button id="play-button">Play!</input>
+		</div>
 	</body>
 </html>

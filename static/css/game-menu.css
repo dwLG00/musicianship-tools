@@ -1,0 +1,13 @@
+
+
+.invisible {
+	display: none;
+}
+
+.selected {
+	background-color: coral !important;
+}
+
+.difficulty {
+	background-color: white;
+}
