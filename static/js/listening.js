@@ -10,7 +10,6 @@ const app = new PIXI.Application({
 document.getElementById('game-container').appendChild(app.view);
 
 
-
 // Declare assets we use for our listening game
 let frame = new PIXI.Texture.from('/static/game-resources/textures/piano-frame.png');
 
@@ -18,29 +17,28 @@ let l_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L.
 let l_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-selected.png');
 let l_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-correct.png');
 let l_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-incorrect.png');
+let l_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-act-correct.png');
 
 let t_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T.png');
 let t_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-selected.png');
 let t_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-correct.png');
 let t_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-incorrect.png');
+let t_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-act-correct.png');
 
 let j_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J.png');
 let j_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-selected.png');
 let j_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-correct.png');
 let j_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-incorrect.png');
+let j_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-act-correct.png');
 
 let b_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black.png');
 let b_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-selected.png');
 let b_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-correct.png');
 let b_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-incorrect.png');
-
-
+let b_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-act-correct.png');
 
 // Debug
 //app.stage.addChild(new PIXI.Sprite(frame));
-
-
-
 
 
 // Create containers
@@ -59,8 +57,6 @@ keyboard_frame.anchor.set(0);
 keyboard_frame.position.x = keyboard_x;
 keyboard_frame.position.y = keyboard_y;
 keyboard_lower.addChild(keyboard_frame);
-
-
 
 function draw_key(keytype, position) {
 	let sprite = null;
@@ -82,9 +78,8 @@ function draw_key(keytype, position) {
 	return sprite;
 }
 
-
 // Draw the individual keys
-
+// See keyboard-alignment.txt for the actual values of placement
 let all_keys = [
 	draw_key('t', 5),
 	draw_key('b', 47),
@@ -117,7 +112,6 @@ let all_keys = [
 	draw_key('j', 725),
 	draw_key('l', 770)
 ];
-
 
 // Onclick logic
 function toggle_key(key) {
