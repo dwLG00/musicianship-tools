@@ -185,6 +185,15 @@ function play_chord(notes) {
 	MIDI.chordOff(0, midi_map, 2);
 }
 
+function arpeggiate_chord(notes) {
+	let midi_map = notes.map(note => note + 55);
+	MIDI.setVolume(0, 127);
+	midi_map.forEach((note, index) => {
+		MIDI.noteOn(0, note, 127, index);
+		MIDI.noteOff(0, note, index + 1);
+	});
+}
+
 // Get the game difficulty and set parameters accordingly
 const query_string = window.location.search;
 const url_params = new URLSearchParams(query_string);
