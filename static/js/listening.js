@@ -37,6 +37,9 @@ let b_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano
 let b_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-incorrect.png');
 let b_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-act-correct.png');
 
+let edge_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-edge.png');
+
+
 // Debug
 //app.stage.addChild(new PIXI.Sprite(frame));
 
@@ -78,6 +81,7 @@ function draw_key(keytype, position) {
 	return sprite;
 }
 
+
 // Draw the individual keys
 // See keyboard-alignment.txt for the actual values of placement
 let all_keys = [
@@ -112,6 +116,18 @@ let all_keys = [
 	draw_key('j', 725),
 	draw_key('l', 770)
 ];
+
+// Draw edge keys
+let edge_left = new PIXI.Sprite(edge_key);
+edge_left.anchor.set(0);
+edge_left.position.set(keyboard_x, keyboard_y + 5);
+
+let edge_right = new PIXI.Sprite(edge_key);
+edge_right.anchor.set(1, 0);
+edge_right.position.set(keyboard_x + 770 + 45, keyboard_y + 5);
+
+keyboard_higher.addChild(edge_left);
+keyboard_higher.addChild(edge_right);
 
 // Onclick logic
 function toggle_key(key) {
