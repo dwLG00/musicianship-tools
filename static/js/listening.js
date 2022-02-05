@@ -3,6 +3,8 @@
 let width = 1280;
 let height = 300;
 
+let playback_mode = 'chord';
+
 const app = new PIXI.Application({
 	width: width, height: height, backgroundColor: 0xffffff,
 });
@@ -281,7 +283,19 @@ function load_question() {
 	toggle_key(all_keys[croot_note]);
 
 	// Play the chord
-	play_chord(cnotes_abs);
+	play();
+}
+
+function play() {
+	if (playback_mode == 'chord') {
+		play_chord(cnotes_abs);
+	} else {
+		arpeggiate_chord(cnotes_abs);
+	}
+}
+
+function playback_set(playback) {
+	playback_mode = playback;
 }
 
 
