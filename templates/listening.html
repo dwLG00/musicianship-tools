@@ -30,7 +30,14 @@
 			<p id="score"></p>
 		</div>
 		<div id="game-container">
-		</div><div id="playback-options"><div id="playback-chord" onclick="playback_set('chord')">Chord</div><div id="playback-arpeggio" onclick="playback_set('arpeggio')">Arpeggio</div></div>
+		</div>
+		<div id="playback-options">
+			<button id="playback-chord" onclick="playback_set('chord')">Chord</button>
+			<button id="playback-arpeggio" onclick="playback_set('arpeggio')">Arpeggio</button>
+		</div>
+		<div id="replay">
+			<button onclick="play()">Play Notes Again</button>
+		</div>
 		<div id="submitter">
 			<button type="button" onclick="submit()">Submit</button>
 		</div>

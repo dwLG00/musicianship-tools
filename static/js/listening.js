@@ -4,6 +4,7 @@ let width = 1280;
 let height = 300;
 
 let playback_mode = 'chord';
+let wait_until = null;
 
 const app = new PIXI.Application({
 	width: width, height: height, backgroundColor: 0xffffff,
@@ -287,10 +288,15 @@ function load_question() {
 }
 
 function play() {
-	if (playback_mode == 'chord') {
-		play_chord(cnotes_abs);
-	} else {
-		arpeggiate_chord(cnotes_abs);
+	let now = Date.now();
+	if (now > wait_until || wait_until == null) {
+		if (playback_mode == 'chord') {
+			wait_until = Date.now() + 2000;
+			play_chord(cnotes_abs);
+		} else {
+			wait_until = Date.now() + 1000 * cnotes_abs.length;
+			arpeggiate_chord(cnotes_abs);
+		}
 	}
 }
 
