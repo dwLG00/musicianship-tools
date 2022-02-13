@@ -217,11 +217,11 @@ let n_notes, range = 0;
 if (difficulty == 'beginner') {
 	n_notes = 2;
 	range = 12;
-	document.getElementById("playback-arpeggio").classList.add("disabled");
+	document.getElementById("playback-arpeggio").disabled = true;
 } else if (difficulty == 'easy') {
 	n_notes = 3;
 	range = 12;
-	document.getElementById("playback-arpeggio").classList.add("disabled");
+	document.getElementById("playback-arpeggio").disabled = true;
 } else if (difficulty == 'intermediate') {
 	n_notes = 4;
 	range = 18;
