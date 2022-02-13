@@ -24,27 +24,33 @@
 		<!-- utils -->
 		<script src="/static/js/midi-js/js/util/dom_request_xhr.js" type="text/javascript"></script>
 		<script src="/static/js/midi-js/js/util/dom_request_script.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/static/css/listening.css"></link>
 	</head>
 	<body>
+
 		<div id="game-info-container">
 			<p id="score"></p>
 		</div>
-		<div id="game-left">
-			<div id="game-container">
+
+		<div id="game">
+			<div id="game-left">
+				<div id="game-container">
+				</div>
+			</div>
+			<div id="game-right">
+				<div id="playback-options">
+					<button id="playback-chord" onclick="playback_set('chord')">Chord</button>
+					<button id="playback-arpeggio" onclick="playback_set('arpeggio')">Arpeggio</button>
+				</div>
+				<div id="replay">
+					<button onclick="play()">Play Notes Again</button>
+				</div>
+				<div id="submitter">
+					<button type="button" onclick="submit()">Submit</button>
+				</div>
 			</div>
 		</div>
-		<div id="game-right">
-		</div>
-		<div id="playback-options">
-			<button id="playback-chord" onclick="playback_set('chord')">Chord</button>
-			<button id="playback-arpeggio" onclick="playback_set('arpeggio')">Arpeggio</button>
-		</div>
-		<div id="replay">
-			<button onclick="play()">Play Notes Again</button>
-		</div>
-		<div id="submitter">
-			<button type="button" onclick="submit()">Submit</button>
-		</div>
+
 		<div id="game-footer">
 			<p class="debug">Debug Footer</p>
 		</div>
