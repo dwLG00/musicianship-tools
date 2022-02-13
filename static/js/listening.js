@@ -432,4 +432,6 @@ function reset() {
 function end_game() {
 }
 
-load_question();
+function setup_game() {
+	load_question();
+}
