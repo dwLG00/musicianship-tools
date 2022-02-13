@@ -1,14 +1,24 @@
 
 
-#game-left {
-	width: 75%;
-	margin-right: 2%;
-	float: left;
+#game-top {
+	margin: auto;
+	text-align: center;
 }
 
-#game-right {
-	width: 22%;
-	float: left;
+#game-top {
+	display: inline;
+	float: none;
+}
+
+#game-bottom {
+	margin: auto;
+	width: 50%;
+	text-align: center;
+}
+
+#game-bottom * {
+	display: inline;
+	float: none;
 }
 
 #game-footer {
@@ -19,17 +29,10 @@
 
 
 #playback-options {
-	border: 2px solid black;
-	margin-bottom: 5px;
 }
 
 #replay {
-	border: 2px solid black;
-	margin-top: 5px;
-	margin-bottom: 5px;
 }
 
 #submitter {
-	border: 2px solid black;
-	margin-top: 5px;
 }

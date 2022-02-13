@@ -1,14 +1,27 @@
 // Create new PIXI instance
 
-let width = 1280;
-let height = 300;
+// Constants
+let width = 815;
+let height = 190;
+
+let scale = 1.5;
+
+
+
+
+// Actual code
+let real_width = width * scale;
+let real_height = height * scale;
 
 let playback_mode = 'chord';
 let wait_until = null;
 
 const app = new PIXI.Application({
-	width: width, height: height, backgroundColor: 0xffffff,
+	width: real_width, height: real_height, backgroundColor: 0xffffff,
 });
+
+app.stage.scale.x = scale;
+app.stage.scale.y = scale;
 
 document.getElementById('game-container').appendChild(app.view);
 
@@ -55,8 +68,8 @@ app.stage.addChild(keyboard_higher);
 
 // Generate keyboard
 
-let keyboard_x = 100;
-let keyboard_y = 100;
+let keyboard_x = 0;
+let keyboard_y = 0;
 
 let keyboard_frame = new PIXI.Sprite(frame);
 keyboard_frame.anchor.set(0);
