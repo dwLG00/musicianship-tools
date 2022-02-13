@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title>Listening</title>
+		<!-- modal -->
+		<script src="/static/js/listening-modal.js"></script>
 		<!-- game logic-->
 		<script src="https://pixijs.download/release/pixi.js"></script>
 		<script src="/static/js/listening.js" defer></script>
@@ -59,10 +61,12 @@
 		<div class="modal" id="play-game-modal">
 			<div class="modal-bg modal-exit"><div>
 			<div class="modal-container">
-				<h1></h1>
-				<button id="play-game" onclick="setup_game()">Play game</button>
+				<h1>Game Rules</h1>
+				<!-- Add in the game rules -->
+				<div class="modal-buttons">
+					<button id="play-game" class="modal-exit" onclick="setup_game()">Play Game</button><button id="exit-game" class="modal-exit">Go Back</button>
+				</div>
 			</div>
 		</div>
-
 	</body>
 </html>
