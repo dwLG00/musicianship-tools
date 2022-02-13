@@ -217,9 +217,11 @@ let n_notes, range = 0;
 if (difficulty == 'beginner') {
 	n_notes = 2;
 	range = 12;
+	document.getElementById("playback-arpeggio").classList.add("disabled");
 } else if (difficulty == 'easy') {
 	n_notes = 3;
 	range = 12;
+	document.getElementById("playback-arpeggio").classList.add("disabled");
 } else if (difficulty == 'intermediate') {
 	n_notes = 4;
 	range = 18;
@@ -301,7 +303,9 @@ function play() {
 }
 
 function playback_set(playback) {
-	playback_mode = playback;
+	if (playback != "arpeggio" || (difficulty != "beginner" && difficulty != "easy")) {
+		playback_mode = playback;
+	}
 }
 
 
