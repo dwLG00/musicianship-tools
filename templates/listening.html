@@ -29,7 +29,9 @@
 		<!-- CSS -->
 		<!--link rel="stylesheet" href="/static/css/main.css"></link-->
 		<!--link rel="stylesheet" href="/static/css/listening.css"></link-->
-		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+		<!--link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" /-->
+		<script src="/static/js/toggle.js" type="text/javascript"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
 
 	</head>
 	<body>
@@ -44,9 +46,10 @@
 				<div id="game-container" class="flex justify-center">
 				</div>
 			</div>
-			<div id="game-bottom" class="flex justify-center">
+			<br>
+			<div id="game-bottom" class="flex justify-center text-xl">
 				<div id="playback-options">
-					<button id="playback-chord" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onclick="playback_set('chord')">Chord</button><button id="playback-arpeggio" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="playback_set('arpeggio')">Arpeggio</button>
+					<button id="playback-chord" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onclick="playback_set('chord'); toggle('playback-chord', 'playback-arpeggio')">Chord</button><button id="playback-arpeggio" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="playback_set('arpeggio'); toggle('playback-arpeggio', 'playback-chord')">Arpeggio</button>
 				</div>
 				<div id="replay">
 					<button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="play()">Play Notes Again</button>
@@ -61,13 +64,23 @@
 			<p class="debug">Debug Footer</p>
 		</div>
 
-
-		<!-- Modal -->
-		<div class="modal">
-			<h2>Game Rules</h2>
-			<p>----Placeholder Rules----</p>
-			<button onclick="close_modal()">Close</button>
-			<button onclick="close_modal_and_start_game()">Play</button>
+		<div class="modal fade fixed top-0 left-0 w-full h-full hidden outline-none overflow-x-hidden overflow-y-auto" id="intro-modal"  tabindex="-1" aria-labelledby="intro-modal" aria-hidden="true">
+			<div class="modal-dialog relative w-auto pointer-events-none">
+				<div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+					<div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+						<h5 class="text-xl font-medium leading-normal text-gray-800" id-"intro-modal-title">How to Play</h5>
+					</div>
+					<div class="modal-body relative p-4">
+						Insert Rules Here
+					</div>
+					<div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+						<button type="button" class="btn-close bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" data-modal-toggle="intro-modal" aria-label="Close" onclick="close_modal_and_start_game()">
+							Start
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
+
 	</body>
 </html>

@@ -2,14 +2,15 @@
 const modal = document.querySelectorAll('.modal')[0];
 
 function close_modal() {
-	modal.classList.remove('is--visible');
+	modal.classList.add('hidden');
 }
 
 function close_modal_and_start_game() {
-	modal.classList.remove('is--visible');
+	modal.classList.add('hidden');
 	setTimeout(() => {setup_game();}, 1000);
 }
+
 window.onload = () => {
-	modal.classList.add('is--visible');
+	modal.classList.remove('hidden');
 }
 
