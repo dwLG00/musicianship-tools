@@ -1,0 +1,8 @@
+# Rules
+The objective is to highlight the keys on the piano that you hear played in the recording.
+The root note of each recording is highlighted from the start. You can highlight keys by clicking on them on the piano.
+Depending on the difficulty, you can replay the audio recording multiple times, or can toggle between playing the recording as a chord or an arpeggio.
+When you are done highlighting the keys, press submit to check your answers.
+- Green: The correct key was highlighted
+- Red: You highlighted this key but it was not played
+- Yellow: This key was played, but it was not highlighted.
