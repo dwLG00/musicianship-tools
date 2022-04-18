@@ -34,16 +34,15 @@
 		<script src="https://cdn.tailwindcss.com"></script>
 
 	</head>
-	<body>
-
+	<body class="">
 		<div id="game-info-container">
 			<p id="score"></p>
 		</div>
 
-		<div id="game" class="container">
-			<div id="game-top">
+		<div id="game" class="p-5">
+			<div id="game-top" class="flex justify-center">
 				<br>
-				<div id="game-container" class="flex justify-center">
+				<div id="game-container">
 				</div>
 			</div>
 			<br>
@@ -55,45 +54,47 @@
 					<button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="play()">Play Notes Again</button>
 				</div>
 				<div id="submitter">
-					<button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" onclick="submit()">Submit</button>
+					<button class="bg-blue-400 hover:bg-blue-500 text-gray-800 font-bold py-2 px-4 rounded-r" onclick="submit()">Submit</button>
 				</div>
 			</div>
 		</div>
 
-<!--
-		<div id="game-footer">
-			<p class="debug">Debug Footer</p>
-		</div>
--->
-
-		<div id="rules" class="container p-5">
-			<h5 class="text-xl font-medium text-slate-800">Submission Key</h5>
-			<ul class="list-none">
-				<li class="inline"><span class="text-green-800">Green:</span><span class="text-slate-800">The correct key was selected</span></li><br>
-				<li class="inline"><span class="text-red-800">Red:</span><span class="text-slate-800">The selected key was not correct</span></li><br>
-				<li class="inline"><span class="text-yellow-800">Yellow:</span><span class="text-slate-800">The key was played, but not selected</span></li>
-			</ul>
-		</div>
-
-<!--
-		<div class="modal fade fixed top-0 left-0 w-full h-full hidden outline-none overflow-x-hidden overflow-y-auto" id="intro-modal"  tabindex="-1" aria-labelledby="intro-modal" aria-hidden="true">
-			<div class="modal-dialog relative w-auto pointer-events-none">
-				<div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-					<div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-						<h5 class="text-xl font-medium leading-normal text-gray-800" id-"intro-modal-title">How to Play</h5>
-					</div>
-					<div class="modal-body relative p-4">
-						Insert Rules Here
-					</div>
-					<div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-						<button type="button" class="btn-close bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" data-modal-toggle="intro-modal" aria-label="Close" onclick="close_modal_and_start_game()">
-							Start
-						</button>
+		<div class="flex justify-center"> <!-- Aligns the rule box -->
+			<div id="rules" class="container p-5 border-2 border-slate-800 rounded">
+					<h5 class="text-2xl font-medium text-slate-800 flex justify-center">Submission Key</h5>
+					<div class="flex justify-center">
+						<ul class="list-none text-xl">
+							<li class="inline"><span class="text-green-600">Green: </span><span class="text-slate-800">The correct key was selected</span></li><br>
+							<li class="inline"><span class="text-red-600">Red: </span><span class="text-slate-800">The incorrect key was selected</span></li><br>
+							<li class="inline"><span class="text-yellow-600">Yellow: </span><span class="text-slate-800">The correct key was not selected</span></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
--->
 
+		<!--div class="flex justify-center items-center h-screen"> <!-- Center modal on screen -->
+			<div class="modal fade fixed w-3/6 h-3/6 hidden outline-none overflow-x-hidden overflow-y-auto inset-x-1/4 inset-y-1/3" id="intro-modal"  tabindex="-1" aria-labelledby="intro-modal" aria-hidden="true">
+				<div class="modal-dialog relative w-auto pointer-events-none border-2 border-slate-100">
+					<div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+						<div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+							<h5 class="text-xl font-medium leading-normal text-gray-800" id-"intro-modal-title">How to Play</h5>
+						</div>
+						<div class="modal-body relative p-4">
+							<ul class="list-none">
+								<li>1. Rule</li>
+								<li>2. Rule</li>
+								<li>3. Rule</li>
+							</ul>
+						</div>
+						<div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-center p-4 border-t border-gray-200 rounded-b-md">
+							<button type="button" class="btn-close bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 rounded" data-modal-toggle="intro-modal" aria-label="Close" onclick="close_modal_and_start_game()">
+								Start
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--/div-->
 	</body>
 </html>

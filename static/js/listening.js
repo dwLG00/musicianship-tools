@@ -284,7 +284,7 @@ let croot_note = 0;
 let cnotes_abs = [];
 
 let cquestion_no = 0;
-let question_count = 5;
+//let question_count = 5;
 let score = 0;
 
 
@@ -403,12 +403,15 @@ function submit() {
 	setTimeout(() => {
 		reset();
 		cquestion_no += 1;
+		/*
 		if (cquestion_no < question_count) {
 			load_question();
 		} else {
 			//End the game
 			end_game();
 		}
+		*/
+		load_question();
 	}, 3000);
 }
 
