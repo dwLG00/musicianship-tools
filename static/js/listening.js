@@ -289,6 +289,17 @@ let score = 0;
 
 
 
+let score_n_correct = 0;
+let score_n_incorrect = 0;
+
+function score_pct_correct() {
+	return score_n_correct / (score_n_correct + score_n_incorrect) * 100
+}
+
+
+
+
+
 function load_question() {
 	// Generate new set of random notes
 	cnotes_abs = generate_chord();
@@ -396,9 +407,19 @@ function submit() {
 	});
 
 	// Update the score
+	/*
 	let cquestion_score = (evaluation.n_correct - 1) / (n_notes - 1);
 	update_score(evaluation.n_correct);
 	document.getElementById('score').innerText = 'Score: ' + (cquestion_score * 100).toFixed(2) + '%';
+	*/
+
+	score_n_correct = score_n_correct + evaluation.n_correct - 1;
+	score_n_incorrect = score_n_incorrect + evaluation.incorrect.length;
+
+	document.getElementById('score-correct').innerText = String(score_n_correct);
+	document.getElementById('score-incorrect').innerText = String(score_n_incorrect);
+	document.getElementById('score-percentage').innerText = score_pct_correct().toFixed(2) + '%';
+
 	all_keys.forEach((key) => {key.is_root = true;});
 	setTimeout(() => {
 		reset();

@@ -48,7 +48,7 @@
 			<br>
 			<div id="game-bottom" class="flex justify-center text-xl">
 				<div id="playback-options">
-					<button id="playback-chord" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onclick="playback_set('chord'); toggle('playback-chord', 'playback-arpeggio')">Chord</button><button id="playback-arpeggio" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="playback_set('arpeggio'); toggle('playback-arpeggio', 'playback-chord')">Arpeggio</button>
+					<button id="playback-chord" class="bg-gray-100 text-gray-300 font-bold py-2 px-4 rounded-l" onclick="playback_set('chord'); toggle('playback-chord', 'playback-arpeggio')">Chord</button><button id="playback-arpeggio" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="playback_set('arpeggio'); toggle('playback-arpeggio', 'playback-chord')">Arpeggio</button>
 				</div>
 				<div id="replay">
 					<button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="play()">Play Notes Again</button>
@@ -59,16 +59,25 @@
 			</div>
 		</div>
 
-		<div class="flex justify-center"> <!-- Aligns the rule box -->
-			<div id="rules" class="container p-5 border-2 border-slate-800 rounded">
-					<h5 class="text-2xl font-medium text-slate-800 flex justify-center">Submission Key</h5>
-					<div class="flex justify-center">
-						<ul class="list-none text-xl">
-							<li class="inline"><span class="text-green-600">Green: </span><span class="text-slate-800">The correct key was selected</span></li><br>
-							<li class="inline"><span class="text-red-600">Red: </span><span class="text-slate-800">The incorrect key was selected</span></li><br>
-							<li class="inline"><span class="text-yellow-600">Yellow: </span><span class="text-slate-800">The correct key was not selected</span></li>
-						</ul>
-					</div>
+		<div class="flex justify-center"> <!-- Aligns the rule box + score box -->
+			<div id="rules" class="container p-5 border-2 border-slate-800 rounded m-0.5 w-1/3 flex-initial">
+				<h5 class="text-2xl font-medium text-slate-800 flex justify-center">Submission Key</h5>
+				<div class="flex justify-center">
+					<ul class="list-none text-xl">
+						<li class="inline"><span class="text-green-600">Green: </span><span class="text-slate-800">The correct key was selected</span></li><br>
+						<li class="inline"><span class="text-red-600">Red: </span><span class="text-slate-800">The incorrect key was selected</span></li><br>
+						<li class="inline"><span class="text-yellow-600">Yellow: </span><span class="text-slate-800">The correct key was not selected</span></li>
+					</ul>
+				</div>
+			</div>
+			<div id="score" class="container p-5 border-2 border-slate-800 rounded m-0.5 w-80 flex-initial">
+				<h5 class="text-2xl font-medium text-slate-800 flex justify-center">Score</h5>
+				<div class="flex justify-center">
+					<ul class="list-none text-xl">
+						<li class="inline"><span class="text-green-600"># Correct: </span><span class="text-slate-800" id="score-correct">0</span></li><br>
+						<li class="inline"><span class="text-red-600"># Incorrect: </span><span class="text-slate-800" id="score-incorrect">0</span></li><br>
+						<li class="inline"><span class="text-slate-800">% Correct: </span><span class="text-slate-800" id="score-percentage">100%</span></li>
+					</ul>
 				</div>
 			</div>
 		</div>
