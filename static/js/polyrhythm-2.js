@@ -11,6 +11,8 @@ var track_miss = new Howl({
 	src: []
 });
 
+// Global constants
+
 var audio_status = "off";
 
 
@@ -46,28 +48,45 @@ function polyrhythm(a, b) { // Generates a list of polyrhythms
 	}
 }
 
-function newtag_a() {
+function newtag_a(num) {
 	const new_onbeat_a = document.createElement("div");
-	new_onbeat_a.dataset.subdivno = "1";
-	new_onbeat_a.textContent = "1";
-	new_onbeat_a.className = "m-px border border-sky-500 bg-sky-400 grow rounded flex justify-center onbeat";
+	new_onbeat_a.dataset.subdivno = num.toString();
+	new_onbeat_a.textContent = num.toString();
+	new_onbeat_a.className = "border border-neutral grow flex justify-center onbeat-a bg-rose-300";
 	return new_onbeat_a;
 }
 
 var newtag_onbeat = newtag_a; //Legacy
 
-function newtag_b(num) {
+function newtag_b() {
 	const new_onbeat_b = document.createElement("div");
-	new_onbeat.dataset.subdivno = num.toString();
-	new_onbeat.textContent = num.toString();
+	new_onbeat_b.dataset.subdivno = "1";
+	new_onbeat_b.textContent = "1";
+	new_onbeat_b.className = "border border-neutral grow flex justify-center onbeat-b bg-blue-300";
+	return new_onbeat_b;
+}
+
+function newtag_ab() {
+	const new_onbeat_ab = document.createElement("div");
+	new_onbeat_ab.subdivno = "1";
+	new_onbeat_ab.textContent = "1";
+	new_onbeat_ab.className = "border border-neutral grow flex justify-center onbeat-ab bg-violet-300";
+	return new_onbeat_ab;
 }
 
 function newtag_offbeat(num) {
 	const new_offbeat = document.createElement("div");
 	new_offbeat.dataset.subdivno = num.toString();
 	new_offbeat.textContent = num.toString();
-	new_offbeat.className = "m-px border border-slate-800 grow rounded flex justify-center offbeat";
+	new_offbeat.className = "border border-neutral grow flex justify-center offbeat";
 	return new_offbeat;
+}
+
+function newtag_empty(num) {
+	const new_empty = document.createElement("div");
+	new_empty.dataset.subdivno = num.toString();
+	new_empty.className = "border border-neutral grow flex justify-center offbeat";
+	return new_empty;
 }
 
 function polyrhythm_update() { // Updates the polyrhythm display
@@ -76,37 +95,46 @@ function polyrhythm_update() { // Updates the polyrhythm display
 
 	let polyrhythm_divisions = polyrhythm(a, b);
 
-	let a_track = document.getElementById('polyrhythm-track-a');
-	let b_track = document.getElementById('polyrhythm-track-b');
+	let track = document.getElementById('polyrhythm-track');
 
-	element_clear(a_track);
-	element_clear(b_track);
+	element_clear(track);
 
-	console.log(polyrhythm_divisions.a_track_counts);
-	console.log(polyrhythm_divisions.b_track_counts);
 
-	for (const i of polyrhythm_divisions.a_track_counts) {
-		if (i == 1) {
-			let tag = newtag_onbeat();
-			a_track.appendChild(tag);
-		} else {
-			let tag = newtag_offbeat(i);
-			a_track.appendChild(tag);
+	// Dealing with grid
+	for (const classname of track.classList) {
+		if (classname.includes('grid-cols-')) {
+			track.classList.remove(classname);
 		}
 	}
 
-	for (const i of polyrhythm_divisions.b_track_counts) {
-		if (i == 1) {
-			let tag = newtag_onbeat();
-			b_track.appendChild(tag);
+	let new_grid_class = "grid-cols-" + a;
+	track.classList.add(new_grid_class);
+
+	//element_clear(a_track);
+	//element_clear(b_track);
+
+	let tracklist = [];
+	for (let i = 0; i < a*b; i++) {
+		let poly_a = polyrhythm_divisions.a_track_counts[i];
+		let poly_b = polyrhythm_divisions.b_track_counts[i];
+		if (poly_a == 1 && poly_b == 1) {
+			tracklist.push(newtag_ab());
+		} else if (poly_a == 1) {
+			tracklist.push(newtag_a(poly_b));
+		} else if (poly_b == 1) {
+			tracklist.push(newtag_b());
 		} else {
-			let tag = newtag_offbeat(i);
-			b_track.appendChild(tag);
+			tracklist.push(newtag_offbeat(poly_b));
 		}
+	}
+
+	for (const tag of tracklist) {
+		track.appendChild(tag);
 	}
 
 	document.getElementById('ratio-a').textContent = a;
 	document.getElementById('ratio-b').textContent = b;
+	return tracklist;
 }
 
 /*
@@ -154,7 +182,10 @@ function player(i, length, delay, a_track, b_track, callback) {
 }
 */
 
-//function play_increment(i, length, 
+function play_increment(i, length, track, callback) {
+	let control_speed = parseInt(speed_control.value); // bpm
+	let actual_speed = 1000/60*(control_speed * length); //miliseconds per subdivision
+}
 
 function stop_audio() {
 	audio_status = "off";

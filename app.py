@@ -16,6 +16,12 @@ def game_select():
 def listening_game():
 	return render_template('listening.html')
 
+@app.route('/game/polyrhythm')
+@app.route('/game/polyrhythm/')
+def polyrhythm_game():
+	#return render_template('polyrhythm.html')
+	return render_template('polyrhythm-2.html')
+
 @app.route('/game/listening/results')
 @app.route('/game/listening/results/')
 def listening_results():

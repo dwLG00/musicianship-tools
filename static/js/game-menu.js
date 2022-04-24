@@ -33,3 +33,8 @@ document.getElementById('play-button').onclick = () => {
 		window.location.href = url;
 	}
 };
+
+
+function goto(url) {
+	location.href = url;
+}

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script> <!-- Audio -->
-		<script src="/static/js/polyrhythm.js" type="application/javascript" defer></script>
+		<script src="/static/js/polyrhythm-2.js" type="application/javascript" defer></script>
 		<!-- Tailwind -->
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
@@ -22,8 +22,8 @@
 						</div>
 
 						<div id="polyrhythm-controller" class="w-full max-w-xs">
-							<input id="polyrhythm-control-a" name="polyrhythm-control-a" type="range" class="range max-w-xs" min="1" max="11" value="2" step="1" oninput="polyrhythm_update()">
-							<input id="polyrhythm-control-b" name="polyrhythm-control-b" type="range" class="range max-w-xs" min="1" max="11" value="2" step="1" oninput="polyrhythm_update()">
+							<input id="polyrhythm-control-a" name="polyrhythm-control-a" type="range" class="range max-w-xs" min="1" max="20" value="3" step="1" oninput="polyrhythm_update()">
+							<input id="polyrhythm-control-b" name="polyrhythm-control-b" type="range" class="range max-w-xs" min="1" max="20" value="4" step="1" oninput="polyrhythm_update()">
 						</div>
 					</div>
 					<div class="container inline" id="playback">
@@ -39,8 +39,7 @@
 				<br>
 
 				<div id="polyrhythm-tracks" class="container">
-					<div id="polyrhythm-track-a" class="flex w-full p-1"></div>
-					<div id="polyrhythm-track-b" class="flex w-full p-1"></div>
+					<div id="polyrhythm-track" class="grid w-full text-xl font-bold text-slate-800"></div>
 				</div>
 			</div>
 		</div>

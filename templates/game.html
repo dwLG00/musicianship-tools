@@ -4,14 +4,17 @@
 	<head>
 		<script src="/static/js/game-menu.js" defer></script>
 		<link rel="stylesheet" href="/static/css/game-menu.css"></link>
+		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body>
-		<h1>Ear Training</h1>
+		<!--
+		<h1>Musicianship Games</h1>
 		<div id="choose-game">
 			<label for="game-select">Choose a game:</label>
 			<select name="game-select" id="game-select" value="null">
 				<option value="null">Choose Game:</option>
 				<option value="listening">Listening</option>
+				<option value="polyrhythm">Polyrhythm</option>
 			</select>
 			<div class="listening-options additional-options invisible">
 				<label>Difficulty:</label>
@@ -24,5 +27,51 @@
 			</div>
 			<button id="play-button">Play!</input>
 		</div>
+		-->
+
+		<div id="global-centerer" class="container p-5 flex justify-center text-slate-800">
+			<h5 id="menu-title" class="text-slate-800">Musicianship</h5><br>
+			<div id="game-menu-inliner" class="inline m-5 flex flex-row">
+				<!-- Ear Training -->
+				<div id="ear-training-container" class="container w-80 m-5 border-2 border-blue-700 rounded">
+					<div id="ear-training-divider" class="grid grid-cols-1 divide-y-2 divide-blue-700 p-5">
+						<span id="ear-training-label" class="text-xl font-bold">Ear Training</span>
+						<p id="ear-training-blurb" class="text-m py-3">
+							Train your ears by listening to 
+							chords and selecting the notes that 
+							were played!
+						</p>
+						<div id="ear-training-play-section">
+							<!--span class="text-m">Choose your Difficulty:</span-->
+							<div id="ear-training-difficulties" class="space-y-1 flex flex-col pt-2">
+								<button class="m-px bg-blue-500 hover:bg-blue-700 text-m text-white font-bold rounded-md" onclick="goto('/game/listening?difficulty=beginner')">Beginner</button>
+								<button class="m-px bg-blue-500 hover:bg-blue-700 text-m text-white font-bold rounded-md" onclick="goto('/game/listening?difficulty=easy')">Easy</button>
+								<button class="m-px bg-blue-500 hover:bg-blue-700 text-m text-white font-bold rounded-md" onclick="goto('/game/listening?difficulty=intermediate')">Intermediate</button>
+								<button class="m-px bg-blue-500 hover:bg-blue-700 text-m text-white font-bold rounded-md" onclick="goto('/game/listening?difficulty=hard')">Hard</button>
+								<button class="m-px bg-blue-500 hover:bg-blue-700 text-m text-white font-bold rounded-md" onclick="goto('/game/listening?difficulty=expert')">Expert</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Polyrhythm -->
+				<div id="polyrhythm-container" class="container w-80 m-5 border-lime-500 border-2 rounded">
+					<div id="polyrhythm-divider" class="grid grid-cols-1 divide-y-2 divide-lime-500 p-5">
+						<span id="polyrhythm-label" class="text-xl font-bold">Polyrhythm Training</span>
+						<p id="polyrhythm-blurb" class="text-m pt-3 pb-9">
+							Visualize, listen to, and learn
+							how to play polyrhythms!
+						</p>
+						<div id="polyrhythm-play-section">
+							<!--span class="text-m">Play</span-->
+							<div id="polyrhythm-difficulties" class="space-y-1 flex flex-col pt-2">
+								<button class="m-px bg-lime-500 hover:bg-lime-700 text-m text-white font-bold rounded-md" onclick="goto('/game/polyrhythm')">Play</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</body>
 </html>
