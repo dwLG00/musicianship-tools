@@ -183,8 +183,31 @@ function player(i, length, delay, a_track, b_track, callback) {
 */
 
 function play_increment(i, length, track, callback) {
+	let speed_control = document.getElementById('speed-control');
 	let control_speed = parseInt(speed_control.value); // bpm
-	let actual_speed = 1000/60*(control_speed * length); //miliseconds per subdivision
+	let delay = 1000/60*(control_speed * length); //miliseconds per subdivision
+
+	if (audio_status == "off") { // Quitting
+		return;
+	}
+
+	// Play Sound
+	let playing_tag = track.children[i];
+	if (playing_tag.classList.includes("onbeat-a")) {
+		track_a_hit.play();
+	} else if (playing_tag.classList.includes("onbeat-b")) {
+		track_b_hit.play();
+	} else if (playing_tag.classList.includes("onbeat-ab")) {
+		track_a_hit.play();
+		track_b_hit.play();
+	} else {
+		track_miss.play();
+	}
+
+	setTimeout(() => {
+		playing_tag; // Do something to deselect the tag
+		play_increment(i + 1 % length, length, track, play_increment);
+	}, delay);
 }
 
 function stop_audio() {
