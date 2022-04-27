@@ -392,7 +392,10 @@ function submit() {
 			key.texture = j_key_correct;
 		} else if (key.texture == b_key_selected) {
 			key.texture = b_key_correct;
-		} else if (key.texture == l_key) { // Change correct unselected textures to yellow
+		}
+	});
+	evaluation.true_correct.forEach((key) => {
+		if (key.texture == l_key) { // Change correct unselected textures to yellow
 			key.texture = l_key_act_correct;
 		} else if (key.texture == t_key) {
 			key.texture = t_key_act_correct;
