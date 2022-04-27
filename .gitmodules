@@ -1,0 +1,3 @@
+[submodule "static/game-resources/audio/drum-samples"]
+	path = static/game-resources/audio/drum-samples
+	url = https://github.com/gregharvey/drum-samples

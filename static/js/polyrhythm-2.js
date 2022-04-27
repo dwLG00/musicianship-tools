@@ -1,20 +1,29 @@
-
 // Audio/Sounds
 
 var track_a_hit = new Howl({
-	src: []
+	src: ['/static/game-resources/audio/drum-samples/polyrhythm/snare.wav'],
+	volume: 0.5
 });
 var track_b_hit = new Howl({
-	src: []
+	src: ['/static/game-resources/audio/drum-samples/polyrhythm/kick.wav'],
+	volume: 1.0
 });
 var track_miss = new Howl({
-	src: []
+	src: ['/static/game-resources/audio/drum-samples/polyrhythm/hihat.wav'],
+	volume: 0.2
 });
 
 // Global constants
 
 var audio_status = "off";
 
+function remove_class(elem, classname) {
+	elem.classList.remove(classname);
+}
+
+function add_class(elem, classname) {
+	elem.classList.add(classname);
+}
 
 function element_clear(elem) { // Clears a tag of its children
 	var child = elem.lastElementChild;
@@ -137,6 +146,14 @@ function polyrhythm_update() { // Updates the polyrhythm display
 	return tracklist;
 }
 
+function play_polyrhythm() {
+	let track = document.getElementById('polyrhythm-track');
+	let track_length = track.children.length;
+
+	audio_status = "on";
+	play_increment(0, track, play_increment);
+}
+
 /*
 function play_polyrhythm() { // Plays the polythythm
 	// We will loooooop
@@ -182,10 +199,16 @@ function player(i, length, delay, a_track, b_track, callback) {
 }
 */
 
-function play_increment(i, length, track, callback) {
+function play_increment(i, track, callback) {
+	//console.log('Cell number #' + i);
+	let length = track.children.length;
 	let speed_control = document.getElementById('speed-control');
 	let control_speed = parseInt(speed_control.value); // bpm
-	let delay = 1000/60*(control_speed * length); //miliseconds per subdivision
+
+	let a = parseInt(document.getElementById('polyrhythm-control-a').value);
+	let spd = 60 / control_speed; // Seconds per beat
+	//let delay = 1000/(60*(control_speed * length)); //miliseconds per subdivision
+	let delay = 1000 * 60 / (control_speed * a);
 
 	if (audio_status == "off") { // Quitting
 		return;
@@ -193,20 +216,38 @@ function play_increment(i, length, track, callback) {
 
 	// Play Sound
 	let playing_tag = track.children[i];
-	if (playing_tag.classList.includes("onbeat-a")) {
+
+	// Set cell as active
+	remove_class(playing_tag, "border-neutral");
+	remove_class(playing_tag, "border");
+	add_class(playing_tag, "border-yellow-300");
+	add_class(playing_tag, "border-2");
+	//add_class(playing_tag, "outline-2");
+	//add_class(playing_tag, "outline-yellow-300");
+
+	if (playing_tag.classList.contains("onbeat-a")) {
 		track_a_hit.play();
-	} else if (playing_tag.classList.includes("onbeat-b")) {
+		//console.log('Played A');
+	} else if (playing_tag.classList.contains("onbeat-b")) {
 		track_b_hit.play();
-	} else if (playing_tag.classList.includes("onbeat-ab")) {
+		//console.log('Played B');
+	} else if (playing_tag.classList.contains("onbeat-ab")) {
 		track_a_hit.play();
 		track_b_hit.play();
-	} else {
-		track_miss.play();
+		//console.log('Played AB');
 	}
+	track_miss.play();
+	//console.log('Played Miss');
 
 	setTimeout(() => {
-		playing_tag; // Do something to deselect the tag
-		play_increment(i + 1 % length, length, track, play_increment);
+		remove_class(playing_tag, "border-yellow-300"); // Do something to deselect the tag
+		remove_class(playing_tag, "border-2");
+		add_class(playing_tag, "border-neutral");
+		add_class(playing_tag, "border");
+		//remove_class(playing_tag, "outline-2");
+		//remove_class(playing_tag, "outline-yellow-300");
+
+		play_increment((i + 1) % length, track, play_increment);
 	}, delay);
 }
 
