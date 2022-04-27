@@ -27,33 +27,33 @@ document.getElementById('game-container').appendChild(app.view);
 
 
 // Declare assets we use for our listening game
-let frame = new PIXI.Texture.from('/static/game-resources/textures/piano-frame.png');
+let frame = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-frame.png');
 
-let l_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L.png');
-let l_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-selected.png');
-let l_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-correct.png');
-let l_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-incorrect.png');
-let l_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-L-act-correct.png');
+let l_key = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-L.png');
+let l_key_selected = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-L-selected.png');
+let l_key_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-L-correct.png');
+let l_key_incorrect = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-L-incorrect.png');
+let l_key_act_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-L-act-correct.png');
 
-let t_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T.png');
-let t_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-selected.png');
-let t_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-correct.png');
-let t_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-incorrect.png');
-let t_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-T-act-correct.png');
+let t_key = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-T.png');
+let t_key_selected = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-T-selected.png');
+let t_key_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-T-correct.png');
+let t_key_incorrect = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-T-incorrect.png');
+let t_key_act_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-T-act-correct.png');
 
-let j_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J.png');
-let j_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-selected.png');
-let j_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-correct.png');
-let j_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-incorrect.png');
-let j_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-J-act-correct.png');
+let j_key = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-J.png');
+let j_key_selected = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-J-selected.png');
+let j_key_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-J-correct.png');
+let j_key_incorrect = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-J-incorrect.png');
+let j_key_act_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-J-act-correct.png');
 
-let b_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black.png');
-let b_key_selected = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-selected.png');
-let b_key_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-correct.png');
-let b_key_incorrect = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-incorrect.png');
-let b_key_act_correct = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-black-act-correct.png');
+let b_key = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-black.png');
+let b_key_selected = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-black-selected.png');
+let b_key_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-black-correct.png');
+let b_key_incorrect = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-black-incorrect.png');
+let b_key_act_correct = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-black-act-correct.png');
 
-let edge_key = new PIXI.Texture.from('/static/game-resources/textures/piano-keys-edge.png');
+let edge_key = new PIXI.Texture.from('/musicianship-tools/static/game-resources/textures/piano-keys-edge.png');
 
 
 // Debug
@@ -197,7 +197,7 @@ all_keys.forEach((key, idx) => {
 // Audio setup
 
 MIDI.loadPlugin({
-	soundfontUrl: "/static/game-resources/soundfont/",
+	soundfontUrl: "/musicianship-tools/static/game-resources/soundfont/",
 	instrument: "acoustic_grand_piano",
 	onprogress: function(state, progress) {
 		console.log(state, progress);
