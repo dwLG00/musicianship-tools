@@ -383,7 +383,7 @@ function submit() {
 	console.log(evaluation);
 
 	// Change the textures
-	evaluation.correct.forEach((key) => {
+	evaluation.correct.forEach((key) => { // Change correct selected textures to green
 		if (key.texture == l_key_selected) {
 			key.texture = l_key_correct;
 		} else if (key.texture == t_key_selected) {
@@ -392,6 +392,14 @@ function submit() {
 			key.texture = j_key_correct;
 		} else if (key.texture == b_key_selected) {
 			key.texture = b_key_correct;
+		} else if (key.texture == l_key) { // Change correct unselected textures to yellow
+			key.texture = l_key_act_correct;
+		} else if (key.texture == t_key) {
+			key.texture = t_key_act_correct;
+		} else if (key.texture == j_key) {
+			key.texture = j_key_act_correct;
+		} else if (key.texture == b_key) {
+			key.texture = b_key_act_correct;
 		}
 	});
 	evaluation.incorrect.forEach((key) => {
@@ -440,13 +448,13 @@ function reset() {
 	all_keys.forEach((key) => {
 		key.is_root = false;
 		key.is_selected = false;
-		if (key.texture == l_key_correct || key.texture == l_key_incorrect || key.texture == l_key_selected) {
+		if (key.texture == l_key_correct || key.texture == l_key_incorrect || key.texture == l_key_selected || key.texture == l_key_act_correct) {
 			key.texture = l_key;
-		} else if (key.texture == t_key_correct || key.texture == t_key_incorrect || key.texture == t_key_selected) {
+		} else if (key.texture == t_key_correct || key.texture == t_key_incorrect || key.texture == t_key_selected || key.texture == t_key_act_correct) {
 			key.texture = t_key;
-		} else if (key.texture == j_key_correct || key.texture == j_key_incorrect || key.texture == j_key_selected) {
+		} else if (key.texture == j_key_correct || key.texture == j_key_incorrect || key.texture == j_key_selected || key.texture == j_key_act_correct) {
 			key.texture = j_key;
-		} else if (key.texture == b_key_correct || key.texture == b_key_incorrect || key.texture == b_key_selected) {
+		} else if (key.texture == b_key_correct || key.texture == b_key_incorrect || key.texture == b_key_selected || key.texture == b_key_act_correct) {
 			key.texture = b_key;
 		}
 	});
