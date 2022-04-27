@@ -1,3 +1,6 @@
 [submodule "static/game-resources/audio/drum-samples"]
 	path = static/game-resources/audio/drum-samples
 	url = https://github.com/gregharvey/drum-samples
+[submodule "static/js/midi-js"]
+	path = static/js/midi-js
+	url = https://github.com/mudcube/MIDI.js/
