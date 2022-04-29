@@ -21,7 +21,7 @@
 							<input id="speed-control" name="speed-control" type="range" class="range" min="1" max="100" value="50" oninput="speed_update()">
 							<br>
 							<div id="polyrhythm-ratio" class="container inline">
-								<span>Ratio: </span><span id="ratio-a">2</span><span>:</span><span id="ratio-b">2</span>
+								<span>Ratio: </span><span id="ratio-a" class="text-red-500">2</span><span>:</span><span id="ratio-b" class="text-blue-500">2</span>
 							</div>
 							<div id="polyrhythm-controller" class="w-full max-w-xs">
 								<div id="slider-a-flex" class="flex gap-1">
@@ -39,6 +39,11 @@
 						</button>
 						<button id="stop" type="button" class="text-white bg-slate-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5" onclick="stop_audio()">
 							Stop Audio
+						</button>
+					</div>
+					<div id="help-container" class="container border-2 border-slate-800 rounded w-0 h-full" style="padding-right: 100%;">
+						<button id="help" type="button" class="text-slate hover:bg-white-100 rounded-lg px-5 py-2.5 h-full" onclick="display_help_modal()">
+							?
 						</button>
 					</div>
 				</div>
