@@ -202,6 +202,7 @@ function player(i, length, delay, a_track, b_track, callback) {
 function play_increment(i, track, callback) {
 	//console.log('Cell number #' + i);
 	let length = track.children.length;
+	let idx = i % length
 	let speed_control = document.getElementById('speed-control');
 	let control_speed = parseInt(speed_control.value); // bpm
 
@@ -215,7 +216,7 @@ function play_increment(i, track, callback) {
 	}
 
 	// Play Sound
-	let playing_tag = track.children[i];
+	let playing_tag = track.children[idx];
 
 	// Set cell as active
 	remove_class(playing_tag, "border-neutral");
@@ -247,7 +248,7 @@ function play_increment(i, track, callback) {
 		//remove_class(playing_tag, "outline-2");
 		//remove_class(playing_tag, "outline-yellow-300");
 
-		play_increment((i + 1) % length, track, play_increment);
+		play_increment((idx + 1) % length, track, play_increment);
 	}, delay);
 }
 
