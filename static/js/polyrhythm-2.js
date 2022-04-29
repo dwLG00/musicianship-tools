@@ -116,6 +116,8 @@ function polyrhythm_update() { // Updates the polyrhythm display
 		}
 	}
 
+
+
 	let new_grid_class = "grid-cols-" + a;
 	track.classList.add(new_grid_class);
 
