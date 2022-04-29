@@ -14,30 +14,32 @@
 			<div class="container p-5 m-5">
 				<div class="container flex" id="controls">
 					<div class="container" id="settings">
-						<label for="speed-control">Speed: </label><span id="speed-value">50</span><br>
-						<input id="speed-control" name="speed-control" type="range" class="range" min="1" max="100" value="50" oninput="speed_update()">
-						<br>
-
-
 						<!-- Polyrhythm ratio label -->
 						<div id="controller-box" class="container border-2 border-slate-800 rounded p-2 max-w-xs text-l">
+
+							<label for="speed-control">Speed: </label><span id="speed-value">50</span><br>
+							<input id="speed-control" name="speed-control" type="range" class="range" min="1" max="100" value="50" oninput="speed_update()">
+							<br>
 							<div id="polyrhythm-ratio" class="container inline">
 								<span>Ratio: </span><span id="ratio-a">2</span><span>:</span><span id="ratio-b">2</span>
 							</div>
-
 							<div id="polyrhythm-controller" class="w-full max-w-xs">
-								<div class="inline"><label for="polyrhythm-control-a" class="text-red-500">R: </label><input id="polyrhythm-control-a" name="polyrhythm-control-a" type="range" class="range max-w-xs" min="1" max="20" value="3" step="1" oninput="polyrhythm_update()"></div>
+								<div id="slider-a-flex" class="flex">
+									<!--div class="inline"--><label for="polyrhythm-control-a" class="text-red-500">R: </label><input id="polyrhythm-control-a" name="polyrhythm-control-a" type="range" class="range max-w-xs" min="1" max="20" value="3" step="1" oninput="polyrhythm_update()"><!--/div-->
+								</div>
 								<br>
-								<div class="inline"><label for="polyrhythm-control-b" class="text-blue-500">B: </span><input id="polyrhythm-control-b" name="polyrhythm-control-b" type="range" class="range max-w-xs" min="1" max="20" value="4" step="1" oninput="polyrhythm_update()"></div>
+								<div id="slider-b-flex" class="flex">
+									<!--div class="inline"--><label for="polyrhythm-control-b" class="text-blue-500">B: </span><input id="polyrhythm-control-b" name="polyrhythm-control-b" type="range" class="range max-w-xs" min="1" max="20" value="4" step="1" oninput="polyrhythm_update()"><!--/div-->
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="container inline" id="playback">
 						<button id="play" type="button" class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-sm px-5 py-2.5" onclick="play_polyrhythm()">
-							Play
+							Play Audio
 						</button>
 						<button id="stop" type="button" class="text-white bg-slate-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5" onclick="stop_audio()">
-							Stop
+							Stop Audio
 						</button>
 					</div>
 				</div>
