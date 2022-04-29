@@ -1,15 +1,15 @@
 // Audio/Sounds
 
 var track_a_hit = new Howl({
-	src: ['/musicianship-tools/static/game-resources/audio/drum-samples-resources/polyrhythm/snare.wav'],
+	src: ['/musicianship-tools/static/game-resources/audio/drum-samples-resources/snare.wav'],
 	volume: 0.5
 });
 var track_b_hit = new Howl({
-	src: ['/musicianship-tools/static/game-resources/audio/drum-samples-resources/polyrhythm/kick.wav'],
+	src: ['/musicianship-tools/static/game-resources/audio/drum-samples-resources/kick.wav'],
 	volume: 1.0
 });
 var track_miss = new Howl({
-	src: ['/musicianship-tools/static/game-resources/audio/drum-samples-resources/polyrhythm/hihat.wav'],
+	src: ['/musicianship-tools/static/game-resources/audio/drum-samples-resources/hihat.wav'],
 	volume: 0.2
 });
 
