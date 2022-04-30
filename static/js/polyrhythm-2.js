@@ -237,7 +237,7 @@ function play_increment(i, track, callback) {
 	add_class(playing_tag, "border-2");
 	*/
 	let previous_bg = find_remove_class(playing_tag, 'bg-');
-	playing_tag.classList.append('bg-yellow-500');
+	playing_tag.classList.add('bg-yellow-500');
 
 	//add_class(playing_tag, "outline-2");
 	//add_class(playing_tag, "outline-yellow-300");
@@ -264,7 +264,7 @@ function play_increment(i, track, callback) {
 		add_class(playing_tag, "border");
 		*/
 		find_remove_class(playing_tag, 'bg-');
-		playing_tag.classList.append(previous_bg);
+		playing_tag.classList.add(previous_bg);
 		//remove_class(playing_tag, "outline-2");
 		//remove_class(playing_tag, "outline-yellow-300");
 		play_increment((idx + 1) % length, track, play_increment);
