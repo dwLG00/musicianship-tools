@@ -6,7 +6,7 @@ function close_help_modal() {
 }
 
 function close_faq_modal() {
-	let modal = document.getElementById('faq-model');
+	let modal = document.getElementById('faq-modal');
 	modal.classList.add('hidden');
 }
 
