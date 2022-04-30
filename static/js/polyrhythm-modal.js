@@ -17,5 +17,5 @@ function display_help_modal() {
 
 function display_faq_modal() {
 	let modal = document.getElementById('faq-modal');
-	model.classList.add('hidden');
+	model.classList.remove('hidden');
 }
