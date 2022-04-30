@@ -26,10 +26,10 @@
 							</div>
 							<div id="polyrhythm-controller" class="w-full max-w-xs">
 								<div id="slider-a-flex" class="flex gap-1">
-									<!--div class="inline"--><label for="polyrhythm-control-a" class="text-red-500">R:</label><input id="polyrhythm-control-a" name="polyrhythm-control-a" type="range" class="range max-w-xs" min="1" max="20" value="3" step="1" oninput="polyrhythm_update()"><!--/div-->
+									<!--div class="inline"--><label for="polyrhythm-control-a" class="text-red-500">R:</label><input id="polyrhythm-control-a" name="polyrhythm-control-a" type="range" class="range max-w-xs" min="1" max="12" value="3" step="1" oninput="polyrhythm_update()"><!--/div-->
 								</div>
 								<div id="slider-b-flex" class="flex gap-1">
-									<!--div class="inline"--><label for="polyrhythm-control-b" class="text-blue-500">B:</label><input id="polyrhythm-control-b" name="polyrhythm-control-b" type="range" class="range max-w-xs" min="1" max="20" value="4" step="1" oninput="polyrhythm_update()"><!--/div-->
+									<!--div class="inline"--><label for="polyrhythm-control-b" class="text-blue-500">B:</label><input id="polyrhythm-control-b" name="polyrhythm-control-b" type="range" class="range max-w-xs" min="1" max="12" value="4" step="1" oninput="polyrhythm_update()"><!--/div-->
 								</div>
 							</div>
 						</div>
@@ -43,8 +43,11 @@
 						</button>
 					</div>
 					<div id="help-container" class="container">
-						<button id="help" type="button" class="text-slate hover:bg-white-100 border-2 border-slate-800 rounded-lg h-10 w-10 float-right" onclick="display_help_modal()">
+						<!--<button id="help" type="button" class="text-slate hover:bg-white-100 border-2 border-slate-800 rounded-lg h-10 w-10 float-right" onclick="display_help_modal()">
 							?
+						</button>-->
+						<button id="help" type="button" class="text-slate hover:bg-white-100 border-2 border-slate-800 rounded-lg px-5 py-2.5 text-sm float-right" onclick="display_help_modal()">
+							How to Use
 						</button>
 					</div>
 				</div>
@@ -64,9 +67,11 @@
 				<div class="modal-dialog relative w-auto pointer-events-none rounded-md border-2 border-slate-100">
 					<div class="modal-content border-none relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding outline-none text-current overscroll-none">
 						<div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-							<h5 class="text-xl font-medium leading-normal text-gray-800" id-"intro-modal-title">FAQ</h5>
+							<!--h5 class="text-xl font-medium leading-normal text-gray-800" id-"intro-modal-title">FAQ</h5-->
+							<h5 class="text-xl font-medium leading-normal text-gray-800" id-"intro-modal-title">How to Play</h5>
 						</div>
 						<div class="modal-body relative p-4 overflow-auto">
+							<!--
 							<ul class="list-none m-2">
 								<li><span class="font-bold text-gray-800">What is a Polyrhythm?</span></li>
 								<li><p class="text-gray-800">A polyrhythm is a combination of two different rhythms, which are combined and played at the same time. Polyrhythms are present in many genres and forms of music, and know how to play polyrhythms is a useful skill for players of all instruments.</p></li>
@@ -76,6 +81,16 @@
 								<br>
 								<li><span class="font-bold text-gray-800">How Should I Learn Polyrhythms Using This Tool?</span></li>
 								<li><p class="text-gray-800">One way of learning polyrhythms is by remembering the timing of the beats in one rhythm in relation to the beats of the other. This is easy to do using this tool. The grid displays the locations of the beats of the red rhythm in relation to the beats of the blue rhythm, and each cell contains a count to make it easier to remember its timing. It helps to learn polyrhythms by playing each cell slowly at first, and then speeding up when you can play the whole polyrhythm without mistakes.</p></li>
+							</ul>
+							-->
+							<ul class="list-disc m-2">
+								<li><span class="text-gray-800">Check out the FAQ for any questions about polyrhythms</span></li>
+								<li><span class="text-gray-800">Change the polyrhythm ratio using the sliders at the top left</span></li>
+								<li><span class="text-gray-800">Listen to or stop the polyrhythm audio using the audio control buttons at the top</span></li>
+								<li><span class="text-gray-800">Change the speed of the polyrhythm audio using the speed slider at the top left</span></li>
+								<li><span class="text-gray-800">Change the polyrhythm ratio using the sliders at the top left</span></li>
+								<li><span class="text-gray-800">Red and Blue cells represent where the Red and Blue rhythms, respectively, have beats</span></li>
+								<li><span class="text-gray-800">Purple cells represent where the Red and Blue beats coincide. Blank cells do not have any beats</span></li>
 							</ul>
 						</div>
 						<div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-center p-4 border-t border-gray-200 rounded-b-md">
