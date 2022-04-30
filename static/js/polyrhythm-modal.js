@@ -7,7 +7,7 @@ function close_help_modal() {
 
 function close_faq_modal() {
 	let modal = document.getElementById('faq-model');
-	model.classList.add('hidden');
+	modal.classList.add('hidden');
 }
 
 function display_help_modal() {
@@ -17,5 +17,5 @@ function display_help_modal() {
 
 function display_faq_modal() {
 	let modal = document.getElementById('faq-modal');
-	model.classList.remove('hidden');
+	modal.classList.remove('hidden');
 }
