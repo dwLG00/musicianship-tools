@@ -21,6 +21,15 @@ function remove_class(elem, classname) {
 	elem.classList.remove(classname);
 }
 
+function find_remove_class(elem, classfind) {
+	for (const classname of elem.classList) {
+		if (classname.includes(classfind)) {
+			elem.classList.remove(classname);
+			return classname;
+		}
+	}
+}
+
 function add_class(elem, classname) {
 	elem.classList.add(classname);
 }
@@ -221,10 +230,15 @@ function play_increment(i, track, callback) {
 	let playing_tag = track.children[idx];
 
 	// Set cell as active
+	/*
 	remove_class(playing_tag, "border-neutral");
 	remove_class(playing_tag, "border");
 	add_class(playing_tag, "border-yellow-300");
 	add_class(playing_tag, "border-2");
+	*/
+	let previous_bg = find_remove_class(playing_tag, 'bg-');
+	playing_tag.classList.append('bg-yellow-500');
+
 	//add_class(playing_tag, "outline-2");
 	//add_class(playing_tag, "outline-yellow-300");
 
@@ -243,13 +257,16 @@ function play_increment(i, track, callback) {
 	//console.log('Played Miss');
 
 	setTimeout(() => {
+		/*
 		remove_class(playing_tag, "border-yellow-300"); // Do something to deselect the tag
 		remove_class(playing_tag, "border-2");
 		add_class(playing_tag, "border-neutral");
 		add_class(playing_tag, "border");
+		*/
+		find_remove_class(playing_tag, 'bg-');
+		playing_tag.classList.append(previous_bg);
 		//remove_class(playing_tag, "outline-2");
 		//remove_class(playing_tag, "outline-yellow-300");
-
 		play_increment((idx + 1) % length, track, play_increment);
 	}, delay);
 }
