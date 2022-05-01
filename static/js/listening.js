@@ -211,6 +211,13 @@ function play_chord(notes) {
 	MIDI.chordOff(0, midi_map, 2);
 }
 
+function play_note(note) {
+	let midi_map = note + 55;
+	MIDI.setVolume(0, 127);
+	MIDI.noteOn(0, note, 127, 0);
+	MIDI.noteOff(0, note, 1);
+}
+
 function arpeggiate_chord(notes) {
 	let midi_map = notes.map(note => note + 55);
 	MIDI.setVolume(0, 127);
@@ -317,8 +324,9 @@ function play() {
 	let now = Date.now();
 	if (now > wait_until || wait_until == null) {
 		if (playback_mode == 'chord') {
-			wait_until = Date.now() + 2000;
-			play_chord(cnotes_abs);
+			wait_until = Date.now() + 3000;
+			play_note(cnotes_abs[0]);
+			setTimeout(() => {play_chord(cnotes_abs)}, 1000);
 		} else {
 			wait_until = Date.now() + 1000 * cnotes_abs.length;
 			arpeggiate_chord(cnotes_abs);
