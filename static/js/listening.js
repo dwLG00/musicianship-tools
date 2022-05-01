@@ -476,5 +476,7 @@ function end_game() {
 }
 
 function setup_game() {
+	document.getElementById('number-of-notes').innerText = n_notes;
+	document.getElementById('max-interval').innerText = range;
 	load_question();
 }
