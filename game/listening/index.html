@@ -48,7 +48,7 @@
 			<br>
 			<div id="game-bottom" class="flex justify-center text-xl">
 				<div id="playback-options">
-					<button id="playback-chord" class="bg-gray-100 text-gray-300 font-bold py-2 px-4 rounded-l" onclick="playback_set('chord'); toggle('playback-chord', 'playback-arpeggio')">Chord</button><button id="playback-arpeggio" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="playback_set('arpeggio'); toggle('playback-arpeggio', 'playback-chord')">Arpeggio</button>
+					<button id="playback-chord" class="bg-gray-100 text-gray-300 font-bold py-2 px-4 rounded-l disabled:bg-gray-100" onclick="playback_set('chord'); toggle('playback-chord', 'playback-arpeggio')">Chord</button><button id="playback-arpeggio" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 disabled:bg-gray-100" onclick="playback_set('arpeggio'); toggle('playback-arpeggio', 'playback-chord')">Arpeggio</button>
 				</div>
 				<div id="replay">
 					<button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onclick="play()">Play Notes Again</button>
