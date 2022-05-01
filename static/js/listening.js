@@ -324,9 +324,9 @@ function play() {
 	let now = Date.now();
 	if (now > wait_until || wait_until == null) {
 		if (playback_mode == 'chord') {
-			wait_until = Date.now() + 3000;
+			wait_until = Date.now() + 4000;
 			play_note(cnotes_abs[0]);
-			setTimeout(() => {play_chord(cnotes_abs)}, 1000);
+			setTimeout(() => {play_chord(cnotes_abs)}, 2000);
 		} else {
 			wait_until = Date.now() + 1000 * cnotes_abs.length;
 			arpeggiate_chord(cnotes_abs);
