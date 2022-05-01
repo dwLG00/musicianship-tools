@@ -214,8 +214,8 @@ function play_chord(notes) {
 function play_note(note) {
 	let midi_map = note + 55;
 	MIDI.setVolume(0, 127);
-	MIDI.noteOn(0, note, 127, 0);
-	MIDI.noteOff(0, note, 1);
+	MIDI.noteOn(0, midi_map, 127, 0);
+	MIDI.noteOff(0, midi_map, 1);
 }
 
 function arpeggiate_chord(notes) {
